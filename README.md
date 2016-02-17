@@ -1,26 +1,21 @@
-[![Issue Stats](http://issuestats.com/github/fsprojects/ProjectScaffold/badge/issue)](http://issuestats.com/github/fsprojects/ProjectScaffold)
-[![Issue Stats](http://issuestats.com/github/fsprojects/ProjectScaffold/badge/pr)](http://issuestats.com/github/fsprojects/ProjectScaffold)
+[![Issue Stats](http://issuestats.com/github/BayardRock/FsLibDivSufSort/badge/issue)](http://issuestats.com/github/BayardRock/FsLibDivSufSort/)
+[![Issue Stats](http://issuestats.com/github/BayardRock/FsLibDivSufSort/badge/pr)](http://issuestats.com/github/BayardRock/FsLibDivSufSort/)
 
-# ProjectScaffold
+# FLibDivSufSort
 
-This project can be used to scaffold a prototypical .NET solution including file system layout and tooling. This includes a build process that: 
+This project is a simple wrapper for the [LibDivSufSort](https://github.com/y-256/libdivsufsort/) Suffix Array Library
 
-* updates all AssemblyInfo files
-* compiles the application and runs all test projects
-* generates [SourceLinks](https://github.com/ctaggart/SourceLink)
-* generates API docs based on XML document tags
-* generates [documentation based on Markdown files](http://fsprojects.github.io/ProjectScaffold/writing-docs.html)
-* generates [NuGet](http://www.nuget.org) packages
-* and allows a simple [one step release process](http://fsprojects.github.io/ProjectScaffold/release-process.html).
+* Based on latest as of 2/17/2016
+* Compiled 64-bit only, but should be easy to adapt to the 32-bit from source
 
 In order to start the scaffolding process run 
 
     > build.cmd // on windows    
     $ ./build.sh  // on unix
     
-Read the [Getting started tutorial](http://fsprojects.github.io/ProjectScaffold/index.html#Getting-started) to learn more.
+Read the [Getting started tutorial](http://bayardrock.github.io/FsLibDivSufSort/index.html#Getting-started) to learn more.
 
-Documentation: http://fsprojects.github.io/ProjectScaffold
+Documentation: http://bayardrock.github.io/FsLibDivSufSort
 
 
 ## Build Status
@@ -31,8 +26,5 @@ Mono | .NET
 
 ## Maintainer(s)
 
-- [@forki](https://github.com/forki)
-- [@pblasucci](https://github.com/pblasucci)
-- [@sergey-tihon](https://github.com/sergey-tihon)
+- [@Rickasaurus](https://github.com/Rickasaurus)
 
-The default maintainer account for projects under "fsprojects" is [@fsprojectsgit](https://github.com/fsprojectsgit) - F# Community Project Incubation Space (repo management)
