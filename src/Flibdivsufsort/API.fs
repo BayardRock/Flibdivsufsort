@@ -1,4 +1,5 @@
 ﻿module Flibdivsufsort
+#nowarn "9"
 
 open System.Runtime.InteropServices
 open Microsoft.FSharp.NativeInterop

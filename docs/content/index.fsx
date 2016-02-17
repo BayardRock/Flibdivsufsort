@@ -26,7 +26,7 @@ Example
 This example demonstrates using a function defined in this sample library.
 
 *)
-#r "Flibdivsufsort.dll"
+#r @"C:\Users\rminerich\Documents\GitHub\Flibdivsufsort\bin\Flibdivsufsort.dll"
 open Flibdivsufsort
 
 printfn "hello = %i" <| Library.hello 0
