@@ -35,7 +35,7 @@ let makeStringSuffixArray (text: string) =
 
 let searchStringSuffixArray (pattern: string) (sa: SuffixArray) =
     sa.Search(Encoding.ASCII.GetBytes(pattern))
-W
+
 (**
 Some more info
 
