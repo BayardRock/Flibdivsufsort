@@ -14,13 +14,21 @@ type SuffixArray<'t>(input: 't[]) =
     let result = 
         let THandle = GCHandle.Alloc(input, GCHandleType.Pinned)
         let SAHandle = GCHandle.Alloc(SA, GCHandleType.Pinned)
-        let res = divsufsort64(NativePtr.ofNativeInt <| THandle.AddrOfPinnedObject(), NativePtr.ofNativeInt <| SAHandle.AddrOfPinnedObject(), int64 TLen)
+        let res = divsufsort64(NativePtr.ofNativeInt <| THandle.AddrOfPinnedObject(), NativePtr.ofNativeInt <| SAHandle.AddrOfPinnedObject(), input.LongLength)
         do THandle.Free()
         do SAHandle.Free()
         res
 
     do if result <> 0 then
          failwithf "Could not build suffix array, error code: %i" result
+
+    member t.IsCorrect () = 
+        let THandle = GCHandle.Alloc(input, GCHandleType.Pinned)
+        let SAHandle = GCHandle.Alloc(SA, GCHandleType.Pinned)
+        let res = sufcheck64(NativePtr.ofNativeInt <| THandle.AddrOfPinnedObject(), NativePtr.ofNativeInt <| SAHandle.AddrOfPinnedObject(), input.LongLength, 1)
+        do THandle.Free()
+        do SAHandle.Free()
+        res = 0
 
     member t.Search (query: 't[]) = 
         let P = query
@@ -30,7 +38,9 @@ type SuffixArray<'t>(input: 't[]) =
             let THandle = GCHandle.Alloc(input, GCHandleType.Pinned)
             let SAHandle = GCHandle.Alloc(SA, GCHandleType.Pinned)
             let idx = NativePtr.stackalloc<saidx64_t>(1)
-            let res = sa_search64(NativePtr.ofNativeInt <| THandle.AddrOfPinnedObject(), int64 TLen, NativePtr.ofNativeInt <| PHandle.AddrOfPinnedObject(), int64 PLen, NativePtr.ofNativeInt <| SAHandle.AddrOfPinnedObject(), int64 SALen, idx)
+            let res = sa_search64(NativePtr.ofNativeInt <| THandle.AddrOfPinnedObject(), input.LongLength, 
+                                  NativePtr.ofNativeInt <| PHandle.AddrOfPinnedObject(), P.LongLength, 
+                                  NativePtr.ofNativeInt <| SAHandle.AddrOfPinnedObject(), input.LongLength, idx)
             do PHandle.Free() 
             do THandle.Free()
             do SAHandle.Free()

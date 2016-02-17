@@ -1,6 +1,9 @@
 // Learn more about F# at http://fsharp.org. See the 'F# Tutorial' project
 // for more guidance on F# programming.
 
+open System
+open System.Text
+
 #r @".\bin\Release\Flibdivsufsort.dll"
 
 open API
@@ -13,6 +16,12 @@ Washington presided over the Constitutional Convention in 1787, which devised a 
 While in power, his use of national authority pursued many ends, especially the preservation of liberty, reduction of regional tensions, and promotion of a spirit of American nationalism.[10] Upon his death, Washington was eulogized as "first in war, first in peace, and first in the hearts of his countrymen" by Henry Lee.[11] Revered in life and in death, scholarly and public polling consistently ranks him among the top three presidents in American history; he has been depicted and remembered in monuments, currency, and other dedications to the present day.
 """ 
 
-let sa = new SuffixArray<char>(testStr.ToUpper().ToCharArray())
+testStr.Length
 
-sa.Search("WASH".ToCharArray()) // Not sure what outputs mean, seems to not work for text.
+let sa = new SuffixArray<byte>(Encoding.ASCII.GetBytes(testStr.ToUpperInvariant()))
+
+sa.IsCorrect()
+
+let res = sa.Search(Encoding.ASCII.GetBytes("February".ToUpperInvariant())) // Not sure what outputs mean, seems to not always work for text.
+
+res |> Array.sortDescending |> Array.distinct
