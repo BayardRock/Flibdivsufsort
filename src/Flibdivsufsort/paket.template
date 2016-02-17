@@ -12,12 +12,14 @@ licenseUrl
 requireLicenseAcceptance
     false
 copyright
-    Copyright 2015
+    Copyright 2016
 tags
     F# fsharp libdivsufsort suffix array
 summary
     An F# Wrapper around the LibDibSufSort suffix array library
 description
     An F# Wrapper around the LibDivSufSort suffix array library
+files
+    ../../bin/Flibdivsufsort/divsufsort64.dll ==> lib/net40
 
-
+	
