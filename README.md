@@ -11,9 +11,9 @@ In order to start the scaffolding process run
     > build.cmd // on windows    
     $ ./build.sh  // on unix
     
-Read the [Getting started tutorial](http://bayardrock.github.io/FsLibDivSufSort/index.html#Getting-started) to learn more.
+Read the [Getting started tutorial](http://bayardrock.github.io/Flibdivsufsort/index.html#Getting-started) to learn more.
 
-Documentation: http://bayardrock.github.io/FsLibDivSufSort
+Documentation: http://bayardrock.github.io/Flibdivsufsort/
 
 ## Maintainer(s)
 
