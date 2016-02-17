@@ -1,7 +1,7 @@
 (*** hide ***)
 // This block of code is omitted in the generated HTML documentation. Use 
 // it to define helpers that you do not want to show in the documentation.
-#I "../../bin"
+#I "../../bin/Flibdivsufsort"
 
 (**
 Flibdivsufsort
@@ -26,11 +26,16 @@ Example
 This example demonstrates using a function defined in this sample library.
 
 *)
-#r @"C:\Users\rminerich\Documents\GitHub\Flibdivsufsort\bin\Flibdivsufsort.dll"
+#r @"Flibdivsufsort.dll"
 open Flibdivsufsort
+open System.Text
 
-printfn "hello = %i" <| Library.hello 0
+let makeStringSuffixArray (text: string) =    
+    new SuffixArray(Encoding.ASCII.GetBytes(text.ToUpperInvariant()))
 
+let searchStringSuffixArray (pattern: string) (sa: SuffixArray) =
+    sa.Search(Encoding.ASCII.GetBytes(pattern))
+W
 (**
 Some more info
 

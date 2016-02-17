@@ -18,10 +18,10 @@ While in power, his use of national authority pursued many ends, especially the 
 
 testStr.Length
 
-let sa = new SuffixArray<byte>(Encoding.ASCII.GetBytes(testStr.ToUpperInvariant()))
+let sa = new SuffixArray(Encoding.ASCII.GetBytes(testStr.ToUpperInvariant()))
 
 sa.IsCorrect()
 
-let res = sa.Search(Encoding.ASCII.GetBytes("February".ToUpperInvariant())) // Not sure what outputs mean, seems to not always work for text.
+let res = sa.Search(Encoding.ASCII.GetBytes("February".ToUpperInvariant()))
 
 res |> Array.sortDescending |> Array.distinct

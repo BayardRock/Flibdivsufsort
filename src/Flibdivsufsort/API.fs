@@ -6,7 +6,11 @@ open Microsoft.FSharp.NativeInterop
 
 open LibdivsufsortWrapper
 
-type SuffixArray<'t>(input: 't[]) =
+/// Occurs when an error happens when a suffix array is initialized
+exception SuffixArrayCreationFailureException of string
+
+/// Suffix Array Wrapper Type, The only Input Parameter is a string. May throw SuffixArrayCreationFailureException. 
+type SuffixArray(input: byte[]) =
     // TODO: Use long arrays instead (there may still be a 32-bit max limit on size)
     let SALen = sizeof<saidx64_t> * input.Length * 5
     let SA = Array.zeroCreate<saidx64_t>(SALen)
@@ -20,8 +24,9 @@ type SuffixArray<'t>(input: 't[]) =
         res
 
     do if result <> 0 then
-         failwithf "Could not build suffix array, error code: %i" result
+         raise <| SuffixArrayCreationFailureException (sprintf "Could not build suffix array, error code: %i" result)
 
+    /// Checks if the initialized Suffix Array was created correctly. 
     member t.IsCorrect () = 
         let THandle = GCHandle.Alloc(input, GCHandleType.Pinned)
         let SAHandle = GCHandle.Alloc(SA, GCHandleType.Pinned)
@@ -30,7 +35,8 @@ type SuffixArray<'t>(input: 't[]) =
         do SAHandle.Free()
         res = 0
 
-    member t.Search (query: 't[]) : int64 [] = 
+    /// Searches the Suffix Array for the given pattern. Returns indicies into the original input string where the pattern was found. 
+    member t.Search (query: byte[]) : int64 [] = 
         let P = query
         let numResults, idx = 
             let PHandle = GCHandle.Alloc(P, GCHandleType.Pinned)
