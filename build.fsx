@@ -42,7 +42,7 @@ let description = "An F# Wrapper around the LibDivSufSort suffix array library"
 let authors = [ "Richard Minerich" ]
 
 // Tags for your project (for NuGet package)
-let tags = "F# fsharp libdivsufsort suffix array"
+let tags = "F# fsharp libdivsufsort suffix array search string"
 
 // File system information
 let solutionFile  = "Flibdivsufsort.sln"
