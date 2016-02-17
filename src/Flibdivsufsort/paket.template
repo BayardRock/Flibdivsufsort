@@ -16,10 +16,10 @@ copyright
 tags
     F# fsharp libdivsufsort suffix array
 summary
-    An F# Wrapper around the LibDibSufSort suffix array library
+    A 64-bit only F# Wrapper around the LibDibSufSort suffix array library
 description
-    An F# Wrapper around the LibDivSufSort suffix array library
+    An F# Wrapper around the LibDivSufSort suffix array library. After installation you'll need to make sure your project is set to 64-bit, and you'll need to make divsufsort64.dll copy on build.
+references 
+    Flibdivsufsort.dll
 files
-    ../../bin/Flibdivsufsort/divsufsort64.dll ==> lib/net40
-
-	
+    ../../bin/Flibdivsufsort/divsufsort64.dll ==> content

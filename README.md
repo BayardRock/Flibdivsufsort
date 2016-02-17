@@ -15,6 +15,11 @@ Read the [Getting started tutorial](http://bayardrock.github.io/Flibdivsufsort/i
 
 Documentation: http://bayardrock.github.io/Flibdivsufsort/
 
+# Common Issues
+
+* BadImageFormatException - Build your project in 64-bit mode. 
+* DllNotFoundException - Set libdivsufsort.dll in your project to copy on build.
+
 ## Maintainer(s)
 
 - [@Rickasaurus](https://github.com/Rickasaurus)
