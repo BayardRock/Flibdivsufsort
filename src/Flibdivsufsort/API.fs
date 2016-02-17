@@ -1,13 +1,12 @@
-﻿module API
+﻿module Flibdivsufsort
 
 open System.Runtime.InteropServices
 open Microsoft.FSharp.NativeInterop
 
-open Flibdivsufsort.Wrapper
+open LibdivsufsortWrapper
 
 type SuffixArray<'t>(input: 't[]) =
-    // TODO: Use long arrays instead
-    let TLen = sizeof<'t> * input.Length
+    // TODO: Use long arrays instead (there may still be a 32-bit max limit on size)
     let SALen = sizeof<saidx64_t> * input.Length * 5
     let SA = Array.zeroCreate<saidx64_t>(SALen)
 
@@ -30,9 +29,8 @@ type SuffixArray<'t>(input: 't[]) =
         do SAHandle.Free()
         res = 0
 
-    member t.Search (query: 't[]) = 
+    member t.Search (query: 't[]) : int64 [] = 
         let P = query
-        let PLen = P.Length * sizeof<'t>
         let numResults, idx = 
             let PHandle = GCHandle.Alloc(P, GCHandleType.Pinned)
             let THandle = GCHandle.Alloc(input, GCHandleType.Pinned)

@@ -6,7 +6,7 @@ open System.Text
 
 #r @".\bin\Release\Flibdivsufsort.dll"
 
-open API
+open Flibdivsufsort
 
 let testStr = """George Washington (February 22, 1732 [O.S. February 11, 1731][b][c] – December 14, 1799) was the first President of the United States (1789–97), the Commander-in-Chief of the Continental Army during the American Revolutionary War, and one of the Founding Fathers of the United States. He presided over the convention that drafted the current United States Constitution and during his lifetime was called the "father of his country".[4]
 Widely admired for his strong leadership qualities, Washington was unanimously elected president in the first two national elections. He oversaw the creation of a strong, well-financed national government that maintained neutrality in the French Revolutionary Wars, suppressed the Whiskey Rebellion, and won acceptance among Americans of all types.[5] Washington's incumbency established many precedents, still in use today, such as the cabinet system, the inaugural address, and the title Mr. President.[6][7] His retirement from office after two terms established a tradition that lasted until 1940, when Franklin Delano Roosevelt won an unprecedented third term. The 22nd Amendment (1951) now limits the president to eight years in office.
