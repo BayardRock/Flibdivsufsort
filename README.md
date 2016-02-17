@@ -1,6 +1,3 @@
-[![Issue Stats](http://issuestats.com/github/BayardRock/FsLibDivSufSort/badge/issue)](http://issuestats.com/github/BayardRock/FsLibDivSufSort/)
-[![Issue Stats](http://issuestats.com/github/BayardRock/FsLibDivSufSort/badge/pr)](http://issuestats.com/github/BayardRock/FsLibDivSufSort/)
-
 # FLibDivSufSort
 
 This project is a simple wrapper for the [LibDivSufSort](https://github.com/y-256/libdivsufsort/) Suffix Array Library
